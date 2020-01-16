@@ -1,6 +1,6 @@
 # Tutorial - Developing on Overledger
 
-![](https://github.com/quantnetwork/overledger-overview/raw/master/resources/overledger-overview.png "overledger-overview diagram")
+![](https://www.overledger.com/wp-content/uploads/2019/04/Overledger-Overview1.png)
 
 ## Introduction
 
@@ -224,7 +224,7 @@ You should see the terminal output stating the transactions have been successful
 }
 ```
 
-A full example can be found in [src/send-transaction.js](../blob/master/src/send-transaction.js).
+A full example can be found in [src/send-transaction.js](../master/src/send-transaction.js).
 
 ## More examples
 
