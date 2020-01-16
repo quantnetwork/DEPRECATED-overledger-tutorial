@@ -42,7 +42,7 @@ Link to [Quant Overledger SDK JavaScript](https://github.com/quantnetwork/overle
 
 ### Additional environment setup
 
-Please note that the package expects certain build tools already present. MacOS and Linux normally has these preinstalled, like the xcode-select gcc compiler etc.
+Please note that the package expects certain build tools already present. MacOS and Linux normally have these preinstalled, like the xcode-select gcc compiler etc.
 
 For Windows, it is important to add the following steps if that is not already configured for your environment.
 
