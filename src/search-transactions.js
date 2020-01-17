@@ -7,6 +7,7 @@ const mappId = '<ENTER YOUR MAPPID>';
 const bpiKey = '<ENTER YOUR BPIKEY>';
 
 // If looking for transaction hashes, they can be returned by running the 'a-to-b-transaction' example
+const ethereumTransactionHash = '0x8457599e56878fc211253cd2764ce47dfa1e651687ca6ccd40603e3650935bc5';
 const rippleTransactionHash = 'C8538AAD92EE6B6479BABAADD49695521303E43E5912494A2B267D34236AB1BD';
 
 //  ---------------------------------------------------------
@@ -21,8 +22,11 @@ const rippleTransactionHash = 'C8538AAD92EE6B6479BABAADD49695521303E43E5912494A2
 
         });
 
+        const ethereumTransaction = await overledger.search.getTransaction(ethereumTransactionHash);
         const rippleTransaction = await overledger.search.getTransaction(rippleTransactionHash);
 
+        console.log('Ethereum transaction: ', ethereumTransaction.data);
+        console.log('\n');
         console.log('Ripple transaction: ', rippleTransaction.data);
         console.log('\n');
     } catch (e) {
