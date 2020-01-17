@@ -33,11 +33,6 @@ To set this up run the following command for npm:
 # npm
 npm install @quantnetwork/overledger-bundle
 ```
-Alternatively for yarn run the following command for npm:
-```sh
-# yarn
-yarn add @quantnetwork/overledger-bundle
-```
 
 The `overledger-bundle` includes all the sub-packages of the Overledger SDK which are required to read and write on the different blockchains supported.
 
