@@ -16,6 +16,13 @@ We will begin writing a NodeJS project which will allow us to run an Overledger 
 
 What we will be building: a simple script which automatically signs and sends transactions to multiple blockchains through Overledger.
 
+## Requirements
+> Please note this has been tested on MacOS and Ubuntu, for Windows, you might need to do additional environment configuration
+
+- NodeJS 10
+- NPM
+- Your favourite IDE/editor
+
 ## Setting up the environment
 
 First, create a new directory within which all the setup will be done. Then, open a terminal shell inside it and run the following command:
@@ -38,21 +45,6 @@ The `overledger-bundle` includes all the sub-packages of the Overledger SDK whic
 
 Link to [Quant Overledger SDK JavaScript](https://github.com/quantnetwork/overledger-sdk-javascript) for some guidance and information.
 
-### Additional environment setup
-
-Please note that the package expects certain build tools already present. MacOS and Linux normally have these preinstalled, like the xcode-select gcc compiler etc.
-
-For Windows, it is important to add the following steps if that is not already configured for your environment.
-
-> PLEASE NOTE: If you already have Python and Windows Build Tools installed this may not work for you. The steps below are dependent on a clean machine. They are tested with node 10.15.1 LTS
-
-Run the following command:
-```sh
-# From an administrative privileged command prompt
-npm install --global --production windows-build-tools
-npm install -g node-gyp
-```
-
 ## Application Flow / Outline
 
 The objective is to succesfully send a multi-chain transaction and verify that it took place.
@@ -60,6 +52,11 @@ The objective is to succesfully send a multi-chain transaction and verify that i
 After that, we will explore some further examples on how to query data from the blockchains.
 
 ### Importing the dependency and setting up the accounts
+
+First, create a JavaScript file, for example `overledger-script.js`.
+Inside the file, we will include all our code blocks.
+
+We will now require the 'overledger-bundle' library and set up the initial constants.
 
 ```javascript
 const OverledgerSDK = require('@quantnetwork/overledger-bundle').default;
@@ -71,7 +68,7 @@ const mappId = '<ENTER YOUR MAPPID>';
 const bpiKey = '<ENTER YOUR BPIKEY>';
 
 // Paste in your ethereum and ripple private keys.
-// For Ethereum you can generate an account using `OverledgerSDK.dlts.ethereum.createAccount` then fund the address at the Ropsten Testnet Faucet.
+// For Ethereum you can generate an account using `OverledgerSDK.dlts.ethereum.createAccount`, then fund the address at the Ropsten Testnet Faucet.
 const partyAEthereumPrivateKey = '';
 const partyAEthereumAddress = ''
 // For Ripple, you can go to the official Ripple Testnet Faucet to get an account already funded.
@@ -83,16 +80,14 @@ const partyBEthereumAddress = '0x1a90dbb13861a29bFC2e464549D28bE44846Dbe4';
 // Keep in mind that for Ripple, the minimum transfer amount is 20XRP (20,000,000 drops), if the address is not yet funded.
 const partyBRippleAddress = 'rHVsZPVPjYJMR3Xa8YH7r7MapS7s5cyqgB';
 
+const transactionMessage = 'Hello world!';
 //  ---------------------------------------------------------
 //  -------------- END VARIABLES TO UPDATE ------------------
 //  ---------------------------------------------------------
 
 ```
 
-### Instantiating the Overledger SDK and setting up the transaction message
-
-First, create a file called `our-script.js`.
-Inside the file, we will include all our code blocks.
+### Instantiating the Overledger SDK
 
 To instantiate the OverledgerSDK, we need to specify the dlts we would like to use and the network we want to connect to. Optionally, we can set a request timeout period in ms. We will also set up the transactionMessage constant here, which we will send to the blockchains.
 
@@ -104,8 +99,6 @@ const overledger = new OverledgerSDK(mappId, bpiKey, {
     timeout: 10000,
   },
 });
-
-const transactionMessage = 'Hello world!';
 ```
 
 ### Getting our account transaction sequences through Overledger
@@ -188,7 +181,7 @@ We will include this block right below the block above, but before the `} catch 
 To run our script, from the terminal, simply execute
 
 ```sh
-node our-script.js
+node overledger-script.js
 ```
 
 You should see the terminal output stating the transactions have been successfuly broadcasted, together with an overledgerTransactionId which can be used to search for both transactions:
