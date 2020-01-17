@@ -68,7 +68,7 @@ const mappId = '<ENTER YOUR MAPPID>';
 const bpiKey = '<ENTER YOUR BPIKEY>';
 
 // Paste in your ethereum and ripple private keys.
-// For Ethereum you can generate an account using `OverledgerSDK.dlts.ethereum.createAccount`, then fund the address at the Ropsten Testnet Faucet.
+// For Ethereum you can generate an account using `OverledgerSDK.dlts.ethereum.createAccount()`, then fund the address at the Ropsten Testnet Faucet. An example can be found in src/create-ethereum-account.js
 const partyAEthereumPrivateKey = '';
 const partyAEthereumAddress = ''
 // For Ripple, you can go to the official Ripple Testnet Faucet to get an account already funded.
@@ -221,8 +221,9 @@ A full example can be found in [src/send-transaction.js](../master/src/send-tran
 ## More examples
 
 Further examples can be found in the `src` folder for:
-- reading an Overledger transaction
+- creating an ethereum account
 - getting address balances
 - getting address sequences
-- searching for transactions
+- reading an Overledger transaction
 - searching for blocks
+- searching for transactions
