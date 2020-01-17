@@ -18,7 +18,7 @@ What we will be building: a simple script which automatically signs and sends tr
 
 ## Setting up the environment
 
-First, create a new project. Then, open a terminal shell inside it and run:
+First, create a new directory within which all the setup will be done. Then, open a terminal shell inside it and run the following command:
 
 ```sh
 npm init -y
@@ -26,12 +26,15 @@ npm init -y
 
 This will create a default `package.json` file which we can use to set up the dependencies of our project.
 
-Only one dependency is required [@quantnetwork/overledger-bundle](https://www.npmjs.com/package/@quantnetwork/overledger-bundle):
+Only one dependency is required [@quantnetwork/overledger-bundle](https://www.npmjs.com/package/@quantnetwork/overledger-bundle).
+To set this up run the following command for npm:
 
 ```sh
 # npm
 npm install @quantnetwork/overledger-bundle
-
+```
+Alternatively for yarn run the following command for npm:
+```sh
 # yarn
 yarn add @quantnetwork/overledger-bundle
 ```
@@ -48,6 +51,7 @@ For Windows, it is important to add the following steps if that is not already c
 
 > PLEASE NOTE: If you already have Python and Windows Build Tools installed this may not work for you. The steps below are dependent on a clean machine. They are tested with node 10.15.1 LTS
 
+Run the following command:
 ```sh
 # From an administrative privileged command prompt
 npm install --global --production windows-build-tools
