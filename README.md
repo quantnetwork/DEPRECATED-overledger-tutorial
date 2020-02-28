@@ -38,8 +38,9 @@ To set this up run the following command for npm:
 
 ```sh
 # npm
-npm install @quantnetwork/overledger-bundle
+npm install @quantnetwork/overledger-bundle@1.0.0-beta.1
 ```
+> Note: if you would like to use the latest version of the Overledger JavaScript SDK, please check the examples from the official [repository](https://github.com/quantnetwork/overledger-sdk-javascript).
 
 The `overledger-bundle` includes all the sub-packages of the Overledger SDK which are required to read and write on the different blockchains supported.
 
